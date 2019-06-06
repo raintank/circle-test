@@ -1,9 +1,33 @@
 version: 2
+
+workflows:
+  version: 2
+  test-build-deploy:
+    jobs:
+      - hello:
+          filters:
+            branches:
+              only: master
+      - goodbye:
+          requires:
+            - hello
+          filters:
+            tags:
+              only: /^v\d+\.\d+\.\d+.*$/
+              branches:
+                ignore: /.*/
+
 jobs:
-  build:
+  hello:
     docker:
       - image: circleci/ruby:2.4.1
     steps:
       - checkout
-      - run: echo "A first hello"
+      - run: echo "hello"
+  goodbye:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - run: echo "goodbye"
 
