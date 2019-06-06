@@ -2,12 +2,6 @@ version: 2
 
 workflows:
   version: 2
-  hello:
-    jobs:
-      - hello:
-          filters:
-            branches:
-              only: master
   goodbye:
     jobs:
       - goodbye:
