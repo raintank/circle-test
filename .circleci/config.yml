@@ -9,8 +9,6 @@ workflows:
             branches:
               only: master
       - goodbye:
-          requires:
-            - hello
           filters:
             tags:
               only: /.*/
