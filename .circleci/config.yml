@@ -13,7 +13,7 @@ workflows:
             - hello
           filters:
             tags:
-              only: /^v\d+\.\d+\.\d+.*$/
+              only: /.*/
             branches:
               ignore: /.*/
 
