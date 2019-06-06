@@ -2,12 +2,14 @@ version: 2
 
 workflows:
   version: 2
-  test-build-deploy:
+  hello:
     jobs:
       - hello:
           filters:
             branches:
               only: master
+  goodbye:
+    jobs:
       - goodbye:
           filters:
             tags:
